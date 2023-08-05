@@ -1,0 +1,48 @@
+print('''
+*******************************************************************************
+          |                   |                  |                     |
+ _________|________________.=""_;=.______________|_____________________|_______
+|                   |  ,-"_,=""     `"=.|                  |
+|___________________|__"=._o`"-._        `"=.______________|___________________
+          |                `"=._o`"=._      _`"=._                     |
+ _________|_____________________:=._o "=._."_.-="'"=.__________________|_______
+|                   |    __.--" , ; `"=._o." ,-"""-._ ".   |
+|___________________|_._"  ,. .` ` `` ,  `"-._"-._   ". '__|___________________
+          |           |o`"=._` , "` `; .". ,  "-._"-._; ;              |
+ _________|___________| ;`-.o`"=._; ." ` '`."\` . "-._ /_______________|_______
+|                   | |o;    `"-.o`"=._``  '` " ,__.--o;   |
+|___________________|_| ;     (#) `-.o `"=.`_.--"_o.-; ;___|___________________
+____/______/______/___|o;._    "      `".o|o_.--"    ;o;____/______/______/____
+/______/______/______/_"=._o--._        ; | ;        ; ;/______/______/______/_
+____/______/______/______/__"=._o--._   ;o|o;     _._;o;____/______/______/____
+/______/______/______/______/____"=._o._; | ;_.--"o.--"_/______/______/______/_
+____/______/______/______/______/_____"=.o|o_.--""___/______/______/______/____
+/______/______/______/______/______/______/______/______/______/______/_____ /
+*******************************************************************************
+''')
+print("Welcome to Treasure Island.")
+print("Your mission is to find the treasure.") 
+
+#https://www.draw.io/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Treasure%20Island%20Conditional.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1oDe4ehjWZipYRsVfeAx2HyB7LCQ8_Fvi%26export%3Ddownload
+
+#Write your code below this line 👇
+
+crossroad_input = input("You are at a crossroad, which way do you go, left or right? Type in your choice please.\n").lower()
+if crossroad_input == "right":
+  print("Game over, sorry bro")
+elif crossroad_input == "left":
+  swimchoice = input("You arrive at a lake, and you see it ablaze, what do you do? Wait or swim? Make your choice now!\n").lower()
+  if swimchoice == "swim":
+    print("Game over, bro, your skin was charred, gnarly....")
+  elif swimchoice == "wait":
+    doorchoice = input("Good job on waiting! By waiting, and being patient, you notice 3 doors that are different colors, you decide to pick one of the doors, which one would you pick? red, yellow, or blue? Decide!\n").lower()
+    if doorchoice == "red":
+      print("Game over, the red door led to an alternate realm in where it's all a sea of blood")
+    elif doorchoice == "blue":
+      print("You entered a realm of a world where it's bitterly cold, you can't return and make another choice. I'm sorry, it's all ove")
+    elif doorchoice == "yellow":
+      print("You did it! You reached a place where all of your wildest dreams will come true, congrats on making it!")
+    else:
+      print("Your indecisviness has caused you to be trapped in a never-ending cycle of self-doubt")
+else:
+  print("Game over, sorry broseph")
