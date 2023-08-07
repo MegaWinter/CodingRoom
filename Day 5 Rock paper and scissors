@@ -1,0 +1,61 @@
+import random
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+
+#Write your code below this line 👇
+
+hand_choice = input("The AI has decided to challenge you to rock, scissors, and paper. Show them your superiority by kicking their ass at this. \n \nPick 0 for Rock, 1 for Paper, or 2 for Scissors. Godspeed comrade\n")
+
+converted_hand_choice = int(hand_choice)
+
+computerchoice = random.randint(0, 2)
+
+if converted_hand_choice == 0 and computerchoice == 0:
+  print(f"You picked {rock}, the computer picked {rock}. It's a tie...")
+elif converted_hand_choice == 0 and computerchoice == 1:
+  print(f"You picked {rock}, the computer picked {paper}. It's a loss...")
+elif converted_hand_choice == 0 and computerchoice == 2:
+  print(f"You picked {rock}, the computer picked {scissors}. It's an absolute victory!!")
+
+  
+
+elif converted_hand_choice == 1 and computerchoice == 0:
+  print(f"You picked {paper}, the computer picked {rock}. It's an absolute victory!!")
+elif converted_hand_choice == 1 and computerchoice == 1:
+  print(f"You picked {paper}, the computer picked {paper}. It's a tie...")
+elif converted_hand_choice == 1 and computerchoice == 2:
+  print(f"You picked {paper}, the computer picked {scissors}. It's a slice and dice defeat...")
+
+
+
+elif converted_hand_choice == 2 and computerchoice == 0:
+  print(f"You picked {scissors}, the computer picked {rock}. It's a suffocating defeat...")
+elif converted_hand_choice == 2 and computerchoice == 1:
+  print(f"You picked {scissors}, the computer picked {paper}. It's a rending victory!")
+elif converted_hand_choice == 2 and computerchoice == 2:
+  print(f"You picked {scissors}, the computer picked {scissors}. It's a tie...")
