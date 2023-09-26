@@ -1,0 +1,89 @@
+from resources import MENU, resources
+
+is_order_active = True
+
+
+def status_report():
+    print(f"Water: {resources['water']}ml")
+    print(f"Milk: {resources['milk']}ml")
+    print(f"Coffee: {resources['coffee']}ml")
+
+
+def get_order_espresso():
+    how_many_quarters = int(input("How many quarters?: "))
+    how_many_dimes = int(input("How many dimes?: "))
+    how_many_nickels = int(input("How many nickels?: "))
+    how_many_pennies = int(input("How many pennies?: "))
+    total_money = (how_many_quarters * .25) + (how_many_dimes * .10) + (how_many_nickels * .05) + (how_many_pennies * .01)
+    if total_money >= MENU["espresso"]["cost"]:
+        if resources["water"] < MENU["espresso"]["ingredients"]["water"]:
+            print("Not enough water, please refill")
+        elif resources["coffee"] < MENU["espresso"]["ingredients"]["coffee"]:
+            print("Not enough coffee, please refill")
+        resources["water"] = resources["water"] - MENU["espresso"]["ingredients"]["water"]
+        resources["coffee"] = resources["coffee"] - MENU["espresso"]["ingredients"]["coffee"]
+        print("Serving it up!")
+    else:
+        print("Not enough money, your money has been refunded")
+
+
+def get_order_latte():
+    how_many_quarters = int(input("How many quarters?: "))
+    how_many_dimes = int(input("How many dimes?: "))
+    how_many_nickels = int(input("How many nickels?: "))
+    how_many_pennies = int(input("How many pennies?: "))
+    total_money = (how_many_quarters * .25) + (how_many_dimes * .10) + (how_many_nickels * .05) + (how_many_pennies * .01)
+    if total_money >= MENU["latte"]["cost"]:
+        if resources["water"] < MENU["latte"]["ingredients"]["water"]:
+            print("Not enough water, please refill")
+        elif resources["milk"] < MENU["latte"]["ingredients"]["milk"]:
+            print("Not enough milk, please refill")
+        elif resources["coffee"] < MENU["latte"]["ingredients"]["coffee"]:
+            print("Not enough coffee, please refill")
+        resources["water"] = resources["water"] - MENU["latte"]["ingredients"]["water"]
+        resources["milk"] = resources["milk"] - MENU["latte"]["ingredients"]["milk"]
+        resources["coffee"] = resources["coffee"] - MENU["latte"]["ingredients"]["coffee"]
+        print("Serving it up!")
+    else:
+        print("Sorry, that's not enough, your money has been refunded")
+
+
+def get_order_cappuccino():
+    how_many_quarters = int(input("How many quarters?: "))
+    how_many_dimes = int(input("How many dimes?: "))
+    how_many_nickels = int(input("How many nickels?: "))
+    how_many_pennies = int(input("How many pennies?: "))
+    total_money = (how_many_quarters * .25) + (how_many_dimes * .10) + (how_many_nickels * .05) + (how_many_pennies * .01)
+    if total_money >= MENU["cappuccino"]["cost"]:
+        if resources["water"] < MENU["cappuccino"]["ingredients"]["water"]:
+            print("Not enough water, please refill")
+        elif resources["milk"] < MENU["cappuccino"]["ingredients"]["milk"]:
+            print("Not enough milk, please refill")
+        elif resources["coffee"] < MENU["cappuccino"]["ingredients"]["coffee"]:
+            print("Not enough coffee, please refill")
+        resources["water"] = resources["water"] - MENU["cappuccino"]["ingredients"]["water"]
+        resources["milk"] = resources["milk"] - MENU["cappuccino"]["ingredients"]["milk"]
+        resources["coffee"] = resources["coffee"] - MENU["cappuccino"]["ingredients"]["coffee"]
+        print("Serving it up!")
+    else:
+        print("Sorry, that's not enough, your money has been refunded")
+
+
+def coffee_order():
+    user_choice = input("What would you like? (espresso/latte/cappuccino) ")
+    if user_choice == 'report':
+        status_report()
+    if user_choice == 'espresso':
+        get_order_espresso()
+    if user_choice == 'latte':
+        get_order_latte()
+    if user_choice == 'cappuccino':
+        get_order_cappuccino()
+    if user_choice == 'off':
+        is_order_active = False
+    else:
+        print("You didn't select a valid option, please try again.")
+
+
+while is_order_active:
+    coffee_order()
